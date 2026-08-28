@@ -5,9 +5,9 @@
     <title>Graph</title>
     <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='css/styles.css') }}">
     <script src=" https://cdn.jsdelivr.net/npm/d3@7.9.0/dist/d3.min.js" charset="utf-8"></script>
-    <script src="https://unpkg.com/topojson@3"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" charset="utf-8"></script>
 </head>
-<body class="page-home">
+<body class="page-graph">
 <div id="graph">
 </div>
 <div id="config">
@@ -17,18 +17,15 @@
             <option value="Both">Both</option>
             <option value="ShadGPT">ShadGPT</option>
             <option value="BassLine">BassLine</option>
-        </select> 
-    </div>
-    <div class="control">
-        Select human analyst:
-        <select name="human_select" id="human_select">
-            <option value="All">All</option>
-            <option value="Harvey Janus">Harvey Janus</option>
-            <option value="Otros">Otros</option>
+            <option value="OwnExtraction">OwnExtraction</option>
         </select> 
     </div>
     <div class="control">
         <button id="update_filters">Filter</button>
+    </div>
+    <div id='tooltip'>
+        <div id='tooltip_title'></div>
+        <div id='tooltip_body'></div>
     </div>
 </div>
 <div id="timeline_container">
@@ -39,7 +36,8 @@ const transactions = {{transactions|tojson}};
 const positions = {{positions|tojson}};
 const timesteps = {{timesteps|tojson}};
 const journals = {{journals|tojson}};
+const data_felipe = {{data_felipe|tojson}};
 </script>
-<script type="text/javascript" src="{{ url_for('static',filename='js/index.js') }}"></script>
+<script type="text/javascript" src="{{ url_for('static',filename='js/graph.js') }}"></script>
 </body>
 </html>

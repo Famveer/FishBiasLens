@@ -1,120 +1,170 @@
 body{
-	margin: 0px;
+    margin: 0px;
 }
 
-#content{
-	display: block;
-	width: calc(100% - 8px);
-	height: 700px;
-	border-style: solid;
-	border-width: 4px;
-	border-color: #bfbdbd;
+/* --- home (/) --- */
+.page-home .label{
+    position:absolute;
 }
-
-#tooltip {
-    position: absolute;
-    top: 50px;
-    right: 50px;
+.page-home #graph {
+    width: 100%;
+    height: 650px;
+    background-color: #c7c5c5;
+}
+.page-home #config{
+    width: 100%;
     height: 50px;
-    width: 280px;
-    background-color: white;
-    border-radius: 25px;
+    background-color: #ebf5ee;
+    display: flex;
+    flex-direction: row;
+}
+.page-home #timeline_container{
+    width: 100%;
+    height: 350px;
+    background-color: #f5ffff;
+    overflow-y: scroll;
+}
+.page-home .journal_container{
+    display: flex;
+    width: 100%;
+    height: 200px;
+    flex-direction: row;
+}
+.page-home .timeline{
+    width: calc(60% - 5px);
+    height: calc(200px - 10px);
+    margin: 5px;
+    border: solid #e0e0e0 2px;
+}
+.page-home .barchart{
+    width: calc(40% - 5px);
+    height: calc(200px - 10px);
+    margin: 5px;
+    border: solid #e0e0e0 2px;
+}
+.page-home .control{
+    width: 100%;
+    height: 100%;
     text-align: center;
+    line-height: 50px;
+    border: solid #e0e0e0 2px;
+}
+
+/* --- graph (/graph) and police_records (/police_records) share this look --- */
+.page-graph .label,
+.page-police .label{
+    position:absolute;
+}
+.page-graph #graph,
+.page-police #graph{
+    width: 100%;
+    height: 650px;
+    background-color: white;
+}
+.page-graph #config,
+.page-police #config{
+    width: 100%;
+    height: 50px;
+    display: flex;
+    flex-direction: row;
+    background-color: #e8e8e8;
+    border: solid #e0e0e0 1px;
+}
+.page-graph #timeline_container,
+.page-police #timeline_container{
+    width: 100%;
+    height: 800px;
+    overflow-y: scroll;
+    background-color: white;
+}
+.page-graph #tooltip,
+.page-police #tooltip{
+    width: 130px;
+    height: 150px;
     display: none;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    position: absolute;
+}
+.page-graph #tooltip_title,
+.page-police #tooltip_title{
+    width: 130px;
+    height: 30px;
     font-size: 12px;
-    font-weight: bold;
+    background-color: #e6e6e6;
+    border: solid 1px #d1d1d1;
+}
+.page-graph #tooltip_body,
+.page-police #tooltip_body{
+    width: 130px;
+    height: 100px;
+    background-color: #f0f0f0;
+    border: solid 1px #d1d1d1;
+}
+.page-graph .journal_container,
+.page-police .journal_container{
+    display: flex;
+    width: 100%;
+    height: 200px;
+    flex-direction: row;
+}
+.page-graph .timeline,
+.page-police .timeline{
+    width: calc(65% - 5px);
+    height: calc(300px - 10px);
+    margin: 5px;
+    border: solid #e0e0e0 2px;
+}
+.page-graph .barchart,
+.page-police .barchart{
+    width: calc(35% - 5px);
+    height: calc(300px - 10px);
+    margin: 5px;
+    border: solid #e0e0e0 2px;
+}
+.page-graph .control,
+.page-police .control{
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    line-height: 50px;
 }
 
-.edg_label{
-	paint-order: stroke;
-    stroke: #000000;
-    stroke-width: 1px;
+/* --- task3 (/task3) --- */
+.page-task3 #content{
+    width: calc(100%);
+    height: 100%;
 }
-
-#controls{
-	display: flex;
-	flex-direction: row;
-	width: calc(100% - 8px);
-	height:200px;
-	border-style: solid;
-	border-width: 4px;
-	border-color: #191b4f;
+.page-task3 #comparison{
+    width: calc(100% - 2px);
+    height: 570px;
+    overflow-y: scroll;
+    border: solid 1px #a4ada3;
 }
-#controls1{
-	display: block;
-	width: 70%;
-	height: 100%;
-	background-color: #f2f6ff;
+.page-task3 #bot_row{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
 }
-#controls3{
-	display: block;
-	width: 70%;
-	height: 100%;
-	background-color: #ffe8ea;
+.page-task3 #detail{
+    width: 50%;
+    height: 290px;
+    border: solid 1px #a79bb3;
 }
-#controls2{
-	display: block;
-	width: 100%;
-	height: 100%;
-	background-color: #f2fcfc;
+.page-task3 #detail2{
+    width: 50%;
+    height: 290px;
+    border: solid 1px #a79bb3;
+    overflow-y: scroll;
 }
-#controls-end{
-	display: block;
-	width: 100%;
-	height: 100%;
-	background-color: #f2fff4;
+.page-task3 #tooltip_name{
+    display: none;
+    width: 100px;
+    height: 30px;
+    font-size: 12px;
+    position: absolute;
 }
-#filter_button{
-	margin: 10px;
-	height: calc(100% - 20px);
-	width: calc(100% - 20px);
-}
-#company-labels{
-	background-color: white;
-	margin: 5px;
-	width: calc(100% - 10px);
-	height: calc(90% - 10px);
-	font-size: 13px;
-	overflow-y: scroll;
-}
-/*edge types*/
-#check1-label{
-	font-weight: bold; background-color: #FF00FF;
-}
-#check2-label{
-	font-weight: bold; background-color: #FFFF00;
-}
-#check3-label{
-	font-weight: bold; background-color: #00FFFF;
-}
-#check4-label{
-	font-weight: bold; background-color: #FFA500;
-}
-#check5-label{
-	font-weight: bold; background-color: #800080;
-}
-#check6-label{
-	font-weight: bold; background-color: #008080;
-}
-#check7-label{
-	font-weight: bold; background-color: #808000;
-}
-#check8-label{
-	font-weight: bold; background-color: #FF1493;
-}
-#check9-label{
-	font-weight: bold; background-color: #8B4513;
-}
-#check10-label{
-	font-weight: bold; background-color: #255199;
-}
-#check11-label{
-	font-weight: bold; background-color: #7FFF00;
-}
-#check12-label{
-	font-weight: bold; background-color: #D2691E;
-}
-#check13-label{
-	font-weight: bold; background-color: #FF4500;
+.page-task3 .analyst_data{
+    width: calc(100% - 10px);
+    height: 150px;
+    border: solid 1px #d9d9d9;
+    margin: 1px;
 }

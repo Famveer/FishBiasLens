@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Graph</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='css/styles.css') }}">
+    <script src=" https://cdn.jsdelivr.net/npm/d3@7.9.0/dist/d3.min.js" charset="utf-8"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" charset="utf-8"></script>
+</head>
+<body class="page-task3">
+<div id="content">
+    <div id="comparison"></div>
+    <div id="bot_row">
+        <div id="detail"></div>
+        <div id="detail2"></div>
+    </div>
+</div>
+<div id='tooltip_name'>
+</div>
+<script type="text/javascript">
+var data = {{data|tojson}};
+var companies = {{companies|tojson}};
+var positive = {{positive|tojson}};
+var negative = {{negative|tojson}};
+var analysts = {{analysts|tojson}};
+var edge_types = {{edge_types|tojson}};
+</script>
+<script type="text/javascript" src="{{ url_for('static',filename='js/task3.js') }}"></script>
+</body>
+</html>
