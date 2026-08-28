@@ -24,10 +24,10 @@
 
 | Archivo | Generador |
 |---|---|
-| `task3/data_felipe.json` | `visualization/proc_felipe.py` (regenerable — ejecutar `python proc_felipe.py` desde `visualization/`). Combina `data/graph/graph.json` + `outputs/csv/graph_modified.csv` + `data/csv/reports_omitted.ods`. |
-| `data_final.csv`, `data_clean2.json`, `task3/task3_data.csv` | Derivados de `data/csv/graph.csv` (mismas filas/esquema + columnas `_weight`, `_journal` añadidas). **Sin script generador en el repo actual** — el que los produjo ya no existe. |
-| `comp.json`, `companies.json`, `companies_0.json`, `no_tr_cf_comp.json`, `task3/task3_allcomps.json` | Listas de entidades clasificadas por `source_type`/`target_type` de `data/csv/graph.csv`. **Sin script generador en el repo actual.** |
-| `task3/task3_positive.json`, `task3/task3_negative.json` | Subconjuntos por sentimiento de evento del mismo origen. **Sin script generador.** |
+| `article_publications/data_felipe.json` | `visualization/proc_felipe.py` (regenerable — ejecutar `python proc_felipe.py` desde `visualization/`). Combina `data/graph/graph.json` + `outputs/csv/graph_modified.csv` + `data/csv/reports_omitted.ods`. |
+| `data_final.csv`, `data_clean2.json`, `article_publications/article_publications_data.csv` | Derivados de `data/csv/graph.csv` (mismas filas/esquema + columnas `_weight`, `_journal` añadidas). **Sin script generador en el repo actual** — el que los produjo ya no existe. |
+| `comp.json`, `companies.json`, `companies_0.json`, `no_tr_cf_comp.json`, `article_publications/article_publications_allcomps.json` | Listas de entidades clasificadas por `source_type`/`target_type` de `data/csv/graph.csv`. **Sin script generador en el repo actual.** |
+| `article_publications/article_publications_positive.json`, `article_publications/article_publications_negative.json` | Subconjuntos por sentimiento de evento del mismo origen. **Sin script generador.** |
 | `transactions2.csv`, `transactions_final.json`, `positions4.json` | Agregación de transacciones y coordenadas de layout. **Sin script generador.** |
 
 ## `visualization/` — código de la app (sin datos)

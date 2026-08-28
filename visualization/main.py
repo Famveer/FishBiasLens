@@ -165,7 +165,7 @@ def graph():
 
 	# read original graph
 	data_felipe = None
-	with open('../outputs/visualization/task3/data_felipe.json') as f:
+	with open('../outputs/visualization/article_publications/data_felipe.json') as f:
 	    data_felipe = json.load(f)
 
 	edge_weights = {
@@ -323,29 +323,29 @@ def get_nodes():
 		i += 1
 	return positions
 
-@app.route('/task3', methods=['GET', 'POST'])
-def task3():
+@app.route('/article_publications', methods=['GET', 'POST'])
+def article_publications():
 	# read data
-	data = pd.read_csv('../outputs/visualization/task3/task3_data.csv')
+	data = pd.read_csv('../outputs/visualization/article_publications/article_publications_data.csv')
 
 	# read companies
 	companies = None
-	with open('../outputs/visualization/task3/task3_allcomps.json') as f:
+	with open('../outputs/visualization/article_publications/article_publications_allcomps.json') as f:
 		companies = json.load(f)
 
 	# positive
 	positive = None
-	with open('../outputs/visualization/task3/task3_positive.json') as f:
+	with open('../outputs/visualization/article_publications/article_publications_positive.json') as f:
 		positive = json.load(f)
 
 	# negative
 	negative = None
-	with open('../outputs/visualization/task3/task3_negative.json') as f:
+	with open('../outputs/visualization/article_publications/article_publications_negative.json') as f:
 		negative = json.load(f)
 
 	# read original graph
 	data_felipe = None
-	with open('../outputs/visualization/task3/data_felipe.json') as f:
+	with open('../outputs/visualization/article_publications/data_felipe.json') as f:
 	    data_felipe = json.load(f)
 
 	analysts = sorted(list(df['_last_edited_by'].unique())) + ['Felipe']
@@ -358,7 +358,7 @@ def task3():
 	final_data = data.to_dict('records') + data_felipe
 
 	print(data['_raw_source'])
-	return render_template('task3.html', data=final_data,
+	return render_template('article_publications.html', data=final_data,
 		positive=positive, negative=negative,
 		companies=companies, analysts=analysts,
 		edge_types=edge_types

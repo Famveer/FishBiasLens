@@ -119,6 +119,6 @@ def proc():
 
 
 	print(len(df_felipe_data))
-	with open('../outputs/visualization/task3/data_felipe.json', 'w') as f:
+	with open('../outputs/visualization/article_publications/data_felipe.json', 'w') as f:
 		json.dump(df_felipe_data, f)
 proc()

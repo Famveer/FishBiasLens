@@ -103,7 +103,7 @@ body{
 .page-police .journal_container{
     display: flex;
     width: 100%;
-    height: 200px;
+    height: 300px;
     flex-direction: row;
 }
 .page-graph .timeline,
@@ -128,41 +128,41 @@ body{
     line-height: 50px;
 }
 
-/* --- task3 (/task3) --- */
-.page-task3 #content{
+/* --- article_publications (/article_publications) --- */
+.page-article_publications #content{
     width: calc(100%);
     height: 100%;
 }
-.page-task3 #comparison{
+.page-article_publications #comparison{
     width: calc(100% - 2px);
     height: 570px;
     overflow-y: scroll;
     border: solid 1px #a4ada3;
 }
-.page-task3 #bot_row{
+.page-article_publications #bot_row{
     width: 100%;
     display: flex;
     flex-direction: row;
 }
-.page-task3 #detail{
+.page-article_publications #detail{
     width: 50%;
     height: 290px;
     border: solid 1px #a79bb3;
 }
-.page-task3 #detail2{
+.page-article_publications #detail2{
     width: 50%;
     height: 290px;
     border: solid 1px #a79bb3;
     overflow-y: scroll;
 }
-.page-task3 #tooltip_name{
+.page-article_publications #tooltip_name{
     display: none;
     width: 100px;
     height: 30px;
     font-size: 12px;
     position: absolute;
 }
-.page-task3 .analyst_data{
+.page-article_publications .analyst_data{
     width: calc(100% - 10px);
     height: 150px;
     border: solid 1px #d9d9d9;
