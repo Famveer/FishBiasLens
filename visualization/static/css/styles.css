@@ -1,0 +1,120 @@
+body{
+	margin: 0px;
+}
+
+#content{
+	display: block;
+	width: calc(100% - 8px);
+	height: 700px;
+	border-style: solid;
+	border-width: 4px;
+	border-color: #bfbdbd;
+}
+
+#tooltip {
+    position: absolute;
+    top: 50px;
+    right: 50px;
+    height: 50px;
+    width: 280px;
+    background-color: white;
+    border-radius: 25px;
+    text-align: center;
+    display: none;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.edg_label{
+	paint-order: stroke;
+    stroke: #000000;
+    stroke-width: 1px;
+}
+
+#controls{
+	display: flex;
+	flex-direction: row;
+	width: calc(100% - 8px);
+	height:200px;
+	border-style: solid;
+	border-width: 4px;
+	border-color: #191b4f;
+}
+#controls1{
+	display: block;
+	width: 70%;
+	height: 100%;
+	background-color: #f2f6ff;
+}
+#controls3{
+	display: block;
+	width: 70%;
+	height: 100%;
+	background-color: #ffe8ea;
+}
+#controls2{
+	display: block;
+	width: 100%;
+	height: 100%;
+	background-color: #f2fcfc;
+}
+#controls-end{
+	display: block;
+	width: 100%;
+	height: 100%;
+	background-color: #f2fff4;
+}
+#filter_button{
+	margin: 10px;
+	height: calc(100% - 20px);
+	width: calc(100% - 20px);
+}
+#company-labels{
+	background-color: white;
+	margin: 5px;
+	width: calc(100% - 10px);
+	height: calc(90% - 10px);
+	font-size: 13px;
+	overflow-y: scroll;
+}
+/*edge types*/
+#check1-label{
+	font-weight: bold; background-color: #FF00FF;
+}
+#check2-label{
+	font-weight: bold; background-color: #FFFF00;
+}
+#check3-label{
+	font-weight: bold; background-color: #00FFFF;
+}
+#check4-label{
+	font-weight: bold; background-color: #FFA500;
+}
+#check5-label{
+	font-weight: bold; background-color: #800080;
+}
+#check6-label{
+	font-weight: bold; background-color: #008080;
+}
+#check7-label{
+	font-weight: bold; background-color: #808000;
+}
+#check8-label{
+	font-weight: bold; background-color: #FF1493;
+}
+#check9-label{
+	font-weight: bold; background-color: #8B4513;
+}
+#check10-label{
+	font-weight: bold; background-color: #255199;
+}
+#check11-label{
+	font-weight: bold; background-color: #7FFF00;
+}
+#check12-label{
+	font-weight: bold; background-color: #D2691E;
+}
+#check13-label{
+	font-weight: bold; background-color: #FF4500;
+}

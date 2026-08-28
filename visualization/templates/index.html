@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Graph</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='css/styles.css') }}">
+    <script src="https://cdn.jsdelivr.net/npm/d3@7.9.0/dist/d3.min.js" charset="utf-8"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" charset="utf-8"></script>
+    <script src="https://unpkg.com/topojson@3"></script>
+</head>
+<body>
+	<div id="content">
+	</div>
+	<div id='tooltip'>
+	</div>
+	<div id="controls">
+		<div id="controls1">
+			<label for="edge_agg">Edge aggregation:</label><br>
+			<select name="edge_agg" id="edge_agg">
+  				<option value="first">first</option>
+  				<option value="last">last</option>
+  				<option value="frequent">frequent</option>
+			</select>
+			<br>
+			<label for="alg_used">Algorithm used:</label><br>
+			<select name="alg_used" id="alg_used">
+  				<option value="Both">Both</option>
+  				<option value="BassLine">BassLine</option>
+  				<option value="ShadGPT">ShadGPT</option>
+  				<option value="None">None</option>
+			</select><br>
+			<label for="human_reviewer">Human reviewer:</label><br>
+			<select name="human_reviewer" id="human_reviewer">
+  				<option value="All">All</option>
+  				<option value="Junior Shurdlu">Junior Shurdlu</option>
+  				<option value="Olokun Daramola">Olokun Daramola</option>
+  				<option value="Jack Inch">Jack Inch</option>
+  				<option value="Niklaus Oberon">Niklaus Oberon</option>
+  				<option value="Melinda Manning">Melinda Manning</option>
+  				<option value="Greta Grass-Hill">Greta Grass-Hill</option>
+  				<option value="Pelagia Alethea Mordoch">Pelagia Alethea Mordoch</option>
+  				<option value="Harvey Janus">Harvey Janus</option>
+  				<option value="Worf Peer">Worf Peer</option>
+  				<option value="Kristin Baker">Kristin Baker</option>
+  				<option value="Urashima Tarō">Urashima Tarō</option>
+  				<option value="Clepper Jessen">Clepper Jessen</option>
+  				<option value="Haenyeo Hyun-Ki">Haenyeo Hyun-Ki</option>
+  				<option value="None">None</option>
+			</select><br>
+		</div>
+		<div id="controls3">
+			Company: <br>
+			<div id='company-labels'>
+			</div>
+		</div>
+		<div id="controls2">
+			Edge type: <br>
+			<input type="checkbox" id="check1" name="Event.Invest" value="Event.Invest">
+  			<label for="Event.Invest" id="check1-label">Event.Invest</label>
+  			
+  			<input type="checkbox" id="check2" name="Event.Aid" value="Event.Aid">
+  			<label for="Event.Aid" id="check2-label">Event.Aid</label>
+  			
+  			<input type="checkbox" id="check3" name="Event.Transaction" value="Event.Transaction">
+  			<label for="Event.Transaction" id="check3-label">Event.Transaction</label><br>
+  			
+  			<input type="checkbox" id="check4" name="Event.Fishing.SustainableFishing" value="Event.Fishing.SustainableFishing">
+  			<label for="Event.Fishing.SustainableFishing" id="check4-label">Event.Fishing.SustainableFishing</label>
+  			
+  			<input type="checkbox" id="check5" name="Event.Fishing" value="Event.Fishing">
+  			<label for="Event.Fishing" id="check5-label">Event.Fishing</label><br>
+  			
+  			<input type="checkbox" id="check6" name="Event.Communication.Conference" value="Event.Communication.Conference">
+  			<label for="Event.Communication.Conference" id="check6-label">Event.Communication.Conference</label>
+  			
+  			<input type="checkbox" id="check7" name="Event.Fishing.OverFishing" value="Event.Fishing.OverFishing">
+  			<label for="Event.Fishing.OverFishing" id="check7-label">Event.Fishing.OverFishing</label><br>
+  			
+  			<input type="checkbox" id="check8" name="Event.Criticize" value="Event.Criticize">
+  			<label for="Event.Criticize" id="check8-label">Event.Criticize</label>
+  			
+  			<input type="checkbox" id="check9" name="Event.Owns.PartiallyOwns" value="Event.Owns.PartiallyOwns">
+  			<label for="Event.Owns.PartiallyOwns" id="check9-label">Event.Owns.PartiallyOwns</label>
+  			
+  			<input type="checkbox" id="check10" name="Event.Applaud" value="Event.Applaud">
+  			<label for="Event.Applaud" id="check10-label">Event.Applaud</label><br>
+  			
+  			<input type="checkbox" id="check11" name="Event.CertificateIssued" value="Event.CertificateIssued">
+  			<label for="Event.CertificateIssued" id="check11-label">Event.CertificateIssued</label>
+
+  			<input type="checkbox" id="check12" name="Event.CertificateIssued.Summons" value="Event.CertificateIssued.Summons">
+  			<label for="Event.CertificateIssued.Summons" id="check12-label">Event.CertificateIssued.Summons</label><br>
+
+  			<input type="checkbox" id="check13" name="Event.Convicted" value="Event.Convicted">
+  			<label for="Event.Convicted" id="check13-label">Event.Convicted</label><br>
+		</div>
+		<div id="controls-end">
+			 <button type="button" id="filter_button">Filter</button> 
+		</div>
+	</div>
+<script type="text/javascript">
+const nodes = {{nodes|tojson}};
+const edges = {{edges|tojson}};
+</script>
+<script type="text/javascript" src="{{ url_for('static',filename='js/helper_functions.js') }}"></script>
+<script type="text/javascript" src="{{ url_for('static',filename='js/main2.js') }}"></script>
+</body>
+</html>

@@ -1,0 +1,13 @@
+#python 3.12
+openai
+pandas
+numpy
+matplotlib
+seaborn
+networkx
+scipy
+flask
+tqdm
+jupyter
+odfpy
+python-Levenshtein
