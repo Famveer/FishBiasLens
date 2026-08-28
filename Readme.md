@@ -9,15 +9,34 @@ Work presented for the IEEE Visual Analytics Science and Technology (VAST) Chall
 # Installation and running
 
 ```
+  cd visualization
   pip install -r requirements.txt
-  python app.py
+  python main.py
 ```
+
+Then open `http://127.0.0.1:5000`.
 
 # Docker installation
 
+Build and run locally:
+
 ```
-  docker-compose -f docker-compose.yml up --build -d
+  docker-compose up --build -d
 ```
+
+Or pull the image published by CI on every push to `main` (see
+`.github/workflows/docker-publish.yml`) and run it on a server:
+
+```
+  docker-compose -f docker-compose.prod.yml up -d
+```
+
+# FishBiasLens navigation
+
+* `/` — Main graph explorer: node-link view of all companies/entities, filterable by extraction algorithm (BassLine, ShadGPT, or Both) and by human analyst.
+* `/graph` — Extended graph explorer that also includes our own GPT extraction (`OwnExtraction`); clicking a node adds a weighted-edge-sum timeline and an edge-count barchart per journal below the graph.
+* `/article_publications` — Side-by-side comparison of article-level extractions across analysts and companies, split into positive/negative edge sets.
+* `/police_records` — Visualizes which companies were mentioned vs. omitted by each of the three journals in the police citation reports, to surface reporting bias.
   
 # Citation
 

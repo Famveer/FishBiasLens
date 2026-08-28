@@ -1,0 +1,103 @@
+name: Build and publish Docker image
+
+on:
+  push:
+    branches: [ main ]
+    tags: [ 'v*.*.*' ]
+  pull_request:
+    branches: [ main ]
+  workflow_dispatch:
+
+env:
+  REGISTRY: ghcr.io
+  IMAGE_NAME: ${{ github.repository }}
+
+jobs:
+  build-test-publish:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: write
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
+
+      - name: Build image (local, for smoke test)
+        uses: docker/build-push-action@v5
+        with:
+          context: .
+          push: false
+          load: true
+          tags: fishbiaslens:smoke-test
+          cache-from: type=gha
+          cache-to: type=gha,mode=max
+
+      - name: Smoke test - boot container and hit every route
+        run: |
+          docker run -d --name smoke -p 5000:5000 fishbiaslens:smoke-test
+          for i in $(seq 1 15); do
+            if curl -sf http://localhost:5000/ > /dev/null; then
+              echo "server is up"
+              break
+            fi
+            echo "waiting for server... ($i)"
+            sleep 2
+          done
+
+          fail=0
+          for route in / /graph /article_publications /police_records; do
+            code=$(curl -s -o /dev/null -w '%{http_code}' "http://localhost:5000${route}")
+            echo "GET ${route} -> ${code}"
+            if [ "$code" != "200" ]; then
+              fail=1
+            fi
+          done
+
+          code=$(curl -s -o /dev/null -w '%{http_code}' -X POST http://localhost:5000/get_nodes \
+            -H "Content-Type: application/json" -d '{"name":"Alvarez PLC"}')
+          echo "POST /get_nodes -> ${code}"
+          if [ "$code" != "200" ]; then
+            fail=1
+          fi
+
+          docker logs smoke
+          docker rm -f smoke
+
+          if [ "$fail" != "0" ]; then
+            echo "one or more routes failed"
+            exit 1
+          fi
+
+      - name: Log in to GitHub Container Registry
+        if: github.event_name != 'pull_request'
+        uses: docker/login-action@v3
+        with:
+          registry: ${{ env.REGISTRY }}
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Extract image metadata (tags, labels)
+        if: github.event_name != 'pull_request'
+        id: meta
+        uses: docker/metadata-action@v5
+        with:
+          images: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}
+          tags: |
+            type=raw,value=latest,enable={{is_default_branch}}
+            type=semver,pattern={{version}}
+            type=sha,prefix=,format=short
+
+      - name: Build and push
+        if: github.event_name != 'pull_request'
+        uses: docker/build-push-action@v5
+        with:
+          context: .
+          push: true
+          tags: ${{ steps.meta.outputs.tags }}
+          labels: ${{ steps.meta.outputs.labels }}
+          cache-from: type=gha
+          cache-to: type=gha,mode=max

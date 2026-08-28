@@ -1,0 +1,14 @@
+.git
+.gitignore
+.ipynb_checkpoints/
+__pycache__/
+*.pyc
+
+notebooks/
+py/
+/requirements.txt
+*.md
+
+# reference material not read by the running app
+data/articles/
+data/Oceanus Information/
