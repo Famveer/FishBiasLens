@@ -53,7 +53,7 @@ with open('../outputs/visualization/transactions_final.json') as f:
 
 app = Flask(__name__)
 
-@app.route('/', methods=['GET', 'POST'])
+@app.route('/overview', methods=['GET', 'POST'])
 def main():
 	df = pd.read_csv('../outputs/visualization/data_final.csv')
 	transactions = pd.read_csv('../outputs/visualization/transactions2.csv')
@@ -86,7 +86,7 @@ def main():
 		journals=journals
     )
 
-@app.route('/graph', methods=['GET', 'POST'])
+@app.route('/', methods=['GET', 'POST'])
 def graph():
 	global df
 	global transactions

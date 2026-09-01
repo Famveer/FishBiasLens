@@ -33,10 +33,10 @@ Or pull the image published by CI on every push to `main` (see
 
 # FishBiasLens navigation
 
-* `/` — Main graph explorer: node-link view of all companies/entities, filterable by extraction algorithm (BassLine, ShadGPT, or Both) and by human analyst.
-* `/graph` — Extended graph explorer that also includes our own GPT extraction (`OwnExtraction`); clicking a node adds a weighted-edge-sum timeline and an edge-count barchart per journal below the graph.
+* `/` — Extended graph explorer that also includes our own GPT extraction (`OwnExtraction`); clicking a node adds a weighted-edge-sum timeline and an edge-count barchart per journal below the graph.
 * `/article_publications` — Side-by-side comparison of article-level extractions across analysts and companies, split into positive/negative edge sets.
 * `/police_records` — Visualizes which companies were mentioned vs. omitted by each of the three journals in the police citation reports, to surface reporting bias.
+* `/overview` — Main graph explorer: node-link view of all companies/entities, filterable by extraction algorithm (BassLine, ShadGPT, or Both) and by human analyst.
   
 # Citation
 

@@ -1,5 +1,6 @@
 services:
   fishbiaslens:
+    container_name: fishbiaslens
     image: ghcr.io/famveer/fishbiaslens:latest
     ports:
       - "5000:5000"
