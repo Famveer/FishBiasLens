@@ -9,8 +9,8 @@ Work presented for the IEEE Visual Analytics Science and Technology (VAST) Chall
 # Installation and running
 
 ```
-  cd visualization
   pip install -r requirements.txt
+  cd visualization
   python main.py
 ```
 
