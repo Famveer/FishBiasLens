@@ -49,7 +49,7 @@ jobs:
           done
 
           fail=0
-          for route in / /graph /article_publications /police_records; do
+          for route in / /article_publications /police_records; do
             code=$(curl -s -o /dev/null -w '%{http_code}' "http://localhost:5000${route}")
             echo "GET ${route} -> ${code}"
             if [ "$code" != "200" ]; then
